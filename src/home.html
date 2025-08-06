@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./output.css" rel="stylesheet" />
+    <title>Form Portal NPM</title>
+    <script async src="https://tally.so/widgets/embed.js"></script>
+  </head>
+  <body>
+    <header class="items-center shadow-2xs sticky top-0 left-0 z-0 flex w-full bg-indigo-300">
+      <div class="container items-center flex-wrap mx-auto px-2">
+        <div class="relative flex justify-between">
+          <div class="flex items-center px-4 py-7">
+            <img src="/img/Logo Npm Bundar-01.svg" alt="logo" class="h-8 w-8 flex-shrink-0 self-center" />
+            <p class="ml-2 text-lg 2xl:text-xl">Nusajaya</p>
+            <strong class="ml-1 text-shadow-black">Persadatama Mandiri</strong>
+          </div>
+          <!-- <div class="flex items-center px-4">
+            <button id="logoutBtn" class="bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition">Logout</button>
+          </div> -->
+          <div class="flex items-center px-4">
+            <button id="logoutButton" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded-full transition-all" onclick="logout()">Logout</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section id="home" class="bg-white">
+      <div class="container flex flex-wrap justify-center max-w-4xl mx-auto overflow shadow-2xl pt-8 w-full">
+        <iframe
+          data-tally-src="https://tally.so/embed/mOqMG7?alignLeft=1&transparentBackground=1&dynamicHeight=1"
+          loading="lazy"
+          width="85%"
+          height="1625"
+          frameborder="0"
+          marginheight="0"
+          marginwidth="0"
+          title="PORTAL NPM"
+        ></iframe>
+      </div>
+    </section>
+
+    <script>
+      // Cek status login
+      if (!sessionStorage.getItem("isLoggedIn")) {
+        window.location.href = "index.html";
+      }
+
+      // Tampilkan email pengguna
+      // const userEmail = sessionStorage.getItem("userEmail");
+      // if (userEmail) {
+      //   document.getElementById("userEmailDisplay").textContent = userEmail;
+      // }
+
+      // Logout handler
+      document.getElementById("logoutButton").addEventListener("click", () => {
+        sessionStorage.removeItem("isLoggedIn");
+        sessionStorage.removeItem("userEmail");
+        window.location.href = "index.html";
+      });
+    </script>
+  </body>
+</html>
