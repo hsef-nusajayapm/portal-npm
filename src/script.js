@@ -65,7 +65,7 @@ loginForm.addEventListener("submit", async function (e) {
   document.getElementById("password").disabled = true;
 
   // Ganti dengan URL Web App Anda
-  const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbw1ivpbSgktZBo8tiuUJMt22_V0H0fvtpSpjVAhofPQ5-LPH9eR0DHxQhKC3CsZfAau/exec";
+  const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbykRHFbKunrdjBpl8oNn1HP-5WRcxYpKDrnzK6AxNQrLKTyZq118V2CC-ZG06k2t8Re/exec";
 
   try {
     const response = await fetch(`${WEB_APP_URL}?action=login&email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`);
