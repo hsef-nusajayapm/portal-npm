@@ -3,36 +3,34 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="./src/output.css" rel="stylesheet" />
+    <link href="src/output.css" rel="stylesheet" />
     <title>Form Portal NPM</title>
     <script async src="https://tally.so/widgets/embed.js"></script>
   </head>
   <body>
-    <header class="items-center shadow-2xs sticky top-0 left-0 z-0 flex w-full bg-indigo-300">
+    <header class="items-center shadow-2xs sticky top-0 left-0 z-0 flex w-full bg-linear-to-r from-cyan-500 to-blue-500">
       <div class="container items-center flex-wrap mx-auto px-2">
         <div class="relative flex justify-between">
-          <div class="flex items-center px-4 py-7">
+          <div class="flex items-center px-4 py-6">
             <img src="./img/Logo Npm Bundar-01.svg" alt="logo" class="h-8 w-8 flex-shrink-0 self-center" />
-            <p class="ml-2 text-lg 2xl:text-xl">Nusajaya</p>
-            <strong class="ml-1 text-shadow-black">Persadatama Mandiri</strong>
+            <p class="ml-2 text-2xl text-white sm:text-2xl">NUSAJAYA</p>
+            <strong class="text-2xl sm:text-2xl text-gray-800 text-shadow-black">PM</strong>
           </div>
-          <!-- <div class="flex items-center px-4">
-            <button id="logoutBtn" class="bg-red-600 text-white py-2 px-4 rounded-lg hover:bg-red-700 transition">Logout</button>
-          </div> -->
           <div class="flex items-center px-4">
-            <button id="logoutButton" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded-full transition-all" onclick="logout()">Logout</button>
+            <button id="logoutButton" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-4 py-2 rounded-full transition-all" onclick="logout()">Logout</button>
           </div>
         </div>
       </div>
     </header>
 
+    <!-- Start Home -->
     <section id="home" class="bg-white">
-      <div class="container flex flex-wrap justify-center max-w-4xl mx-auto overflow shadow-2xl pt-8 w-full">
+      <div class="container flex flex-wrap justify-center max-w-5xl min-h-screen mx-auto shadow-2xl pt-8 w-full">
         <iframe
           data-tally-src="https://tally.so/embed/mOqMG7?alignLeft=1&transparentBackground=1&dynamicHeight=1"
           loading="lazy"
           width="85%"
-          height="1625"
+          height="1920"
           frameborder="0"
           marginheight="0"
           marginwidth="0"
@@ -40,19 +38,29 @@
         ></iframe>
       </div>
     </section>
+    <!-- End Home -->
+
+    <footer class="bg-linear-to-r from-blue-500 to-cyan-500 border-t border-gray-300 mt-0.5">
+      <div class="container mx-auto p-4 text-center text-gray-600">
+        <div class="flex items-center justify-center whitespace-nowrap">
+          <p class="block text-xs font-medium text-white">
+            Created with
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="inline-flex h-4 w-4 text-red-600">
+              <path
+                d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z"
+              />
+            </svg>
+            by <a href="" target class="underline font-bold">HSEF Department of NPM</a>
+          </p>
+        </div>
+      </div>
+    </footer>
 
     <script>
       // Cek status login
       if (!sessionStorage.getItem("isLoggedIn")) {
         window.location.href = "index.html";
       }
-
-      // Tampilkan email pengguna
-      // const userEmail = sessionStorage.getItem("userEmail");
-      // if (userEmail) {
-      //   document.getElementById("userEmailDisplay").textContent = userEmail;
-      // }
-
       // Logout handler
       document.getElementById("logoutButton").addEventListener("click", () => {
         sessionStorage.removeItem("isLoggedIn");
