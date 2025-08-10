@@ -121,7 +121,42 @@ const togglePasswordButton = document.getElementById("togglePassword");
 togglePasswordButton.addEventListener("click", function () {
   const type = passwordInput.getAttribute("type") === "password" ? "text" : "password";
   passwordInput.setAttribute("type", type);
-
-  // Optionally, change the icon to reflect visibility status
-  // (e.g., an "eye" icon for show and a "crossed-out eye" for hide)
 });
+
+// Carousel
+const carousel = document.getElementById("carousel");
+const slides = Array.from(carousel.children);
+const totalOriginalSlides = slides.length;
+const slideWidth = 100;
+let currentSlide = 1;
+let interval;
+
+// Clone otomatis
+const firstClone = slides[0].cloneNode(true);
+const lastClone = slides[slides.length - 1].cloneNode(true);
+
+carousel.prepend(lastClone);
+carousel.append(firstClone);
+
+// Posisi awal
+carousel.style.transform = `translateX(-${currentSlide * slideWidth}%)`;
+
+function nextSlide() {
+  currentSlide++;
+  carousel.style.transition = "transform 1.2s cubic-bezier(0.55, 0.03, 0.24, 1)"; // lebih smooth
+  carousel.style.transform = `translateX(-${currentSlide * slideWidth}%)`;
+
+  if (currentSlide === totalOriginalSlides + 1) {
+    setTimeout(() => {
+      carousel.style.transition = "none";
+      currentSlide = 1;
+      carousel.style.transform = `translateX(-${currentSlide * slideWidth}%)`;
+    }, 1200); // sesuai durasi transisi
+  }
+}
+
+function startCarousel() {
+  interval = setInterval(nextSlide, 5000); // 5 detik antar slide
+}
+
+startCarousel();
